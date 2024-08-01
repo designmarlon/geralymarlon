@@ -1,0 +1,144 @@
+body {
+  background: #2b2a3e;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  font-family: 'Lobster', cursive; /* Fuente 'Lobster' */
+}
+
+.text-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.text-container .a {
+  font-size: 2em; /* Tamaño del texto */
+  white-space: nowrap; /* Evita el salto de línea */
+  overflow: hidden; /* Oculta el texto que no cabe */
+  border-right: 2px solid #FFFFFF; /* Cursor de máquina de escribir */
+  animation: typewriter 4s steps(40, end) both, blink-caret 0.75s step-end infinite; /* Animaciones */
+  display: inline-block; /* Para la animación de máquina de escribir */
+  width: 100%; /* Espacio para la animación */
+  font-family: 'Lobster', cursive; /* Fuente 'Lobster' */
+}
+
+.text-container .a:nth-of-type(1) {
+  animation-delay: 0s; /* No hay retraso para el primer párrafo */
+}
+
+.text-container .a:nth-of-type(2) {
+  animation-delay: 4s; /* Retraso para el segundo párrafo */
+}
+
+.text-container .a:nth-of-type(3) {
+  animation-delay: 8s; /* Retraso para el tercer párrafo */
+}
+
+@keyframes typewriter {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+@keyframes blink-caret {
+  from, to { border-color: transparent; }
+  50% { border-color: #FFFFFF; }
+}
+
+.wave {
+  float: left;
+  margin: 10px; /* Margen alrededor del contenedor */
+  animation: wave ease-in-out 0.6s infinite alternate; /* Animación de onda */
+  transform-origin: center -36px;
+  min-width: 300px; /* Ancho mínimo */
+  min-height: 300px; /* Alto mínimo */
+  position: relative;
+  transition: transform 0.6s ease-in-out; /* Transición suave */
+}
+
+.wave img {
+  border: 5px solid #f8f8f8;
+  display: block;
+  width: auto;   /* Ancho original */
+  height: auto;  /* Alto original */
+  max-width: 300px; /* Ancho máximo */
+  max-height: 300px; /* Alto máximo */
+}
+
+.wave figcaption {
+  text-align: center;
+}
+
+.wave:after {
+  content: '';
+  position: absolute;
+  width: 20px; 
+  height: 20px;
+  border: 1.5px solid #ffffff;
+  top: -10px; 
+  left: 50%;
+  border-bottom: none;
+  border-right: none;
+  transform: rotate(35deg);
+}
+       
+.wave:before {
+  content: '';
+  position: absolute;
+  top: -23px;
+  left: 50%;
+  display: block;
+  height: 44px;
+  width: 47px;
+  background-image: url(https://cdn.hashnode.com/res/hashnode/image/upload/v1602040503586/FW6g79WBY.png);
+  background-size: 20px 20px;
+  background-repeat: no-repeat;
+  z-index: 16;
+}
+        
+@keyframes wave {
+  0% { transform: rotate(10deg); }
+  100% { transform: rotate(-10deg); }
+}
+
+/* Media Queries para pantallas más pequeñas */
+@media (max-width: 1200px) {
+  .wave {
+    margin: 5px; /* Margen reducido */
+    min-width: 400px; /* Ancho mínimo ajustado */
+    min-height: 400px; /* Alto mínimo ajustado */
+  }
+
+  .wave img {
+    max-width: 400px; /* Ancho máximo ajustado */
+    max-height: 400px; /* Alto máximo ajustado */
+  }
+
+  .text-container .a {
+    font-size: 1.8em; /* Tamaño del texto ajustado */
+  }
+}
+
+@media (max-width: 768px) {
+  .wave {
+    margin: 5px; /* Margen aún más reducido */
+    min-width: 300px; /* Ancho mínimo ajustado */
+    min-height: 300px; /* Alto mínimo ajustado */
+  }
+
+  .wave img {
+    max-width: 300px; /* Ancho máximo ajustado */
+    max-height: 300px; /* Alto máximo ajustado */
+  }
+
+  .text-container .a {
+    font-size: 1.5em; /* Tamaño del texto ajustado */
+  }
+}
+
+/* Estilos para detener la animación al pasar el cursor sobre la imagen */
+.wave:hover {
+  animation-play-state: paused; /* Pausa la animación */
+}
